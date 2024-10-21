@@ -23,6 +23,8 @@ As of now bitcart are not providing a signature to verify webhooks.
 It is highly recommended to use `callback.id` to query an invoice and continue execution of code from that invoice. 
 See provided examples.
 
+Alternatively, you can only accept requests from **5.75.174.52** used by *bitcart.ai*
+
 ## Payment Status Enum
 | status    | description                                                            |
 |-----------|------------------------------------------------------------------------|
@@ -36,3 +38,7 @@ It's better to set 'transaction speed' to 2 or 3 in order to receive 'complete' 
 After hitting provided number, you will receive 'complete' status.
 
 ![image](https://github.com/user-attachments/assets/6077dc0a-4b7a-4115-8dbc-86e2c406272c)
+
+## Issues & PR
+Feel free to create issue or PR for another languages.
+
