@@ -28,7 +28,7 @@ Alternatively, you can only accept requests from **5.75.174.52** used by *bitcar
 | status    | description                                                            |
 |-----------|------------------------------------------------------------------------|
 | expired   | Invoice is expired because no payment detected in provided time frame. |
-| confirmed | For each confirmation is passed, this will be sent.                    |
+| confirmed | Passed a confirmation.                                                 |
 | paid      | Transaction detected but not yet confirmed.                            |
 | complete  | Fully confirmed. Transaction has full confirmations.                   |
 
