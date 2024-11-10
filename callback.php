@@ -48,24 +48,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-function get_price($coin, $amount)
-{
-    $mappings = [
-        'BTC' => 'bitcoin',
-        'ETH' => 'ethereum',
-        'LTC' => 'litecoin',
-        'BCH' => 'bitcoin-cash',
-        'XMR' => 'monero',
-        'DASH' => 'dash',
-        'ZEC' => 'zcash',
-        'DOGE' => 'dogecoin',
-        'USDT' => 'tether'
-    ];
-
-    $response = file_get_contents('https://api.coincap.io/v2/rates/' . $mappings[$coin]);
-    $data = json_decode($response, true);
-
-    $rateUsd = $data['data']['rateUsd'];
-    $price = round($rateUsd * $amount, 2);
-    return $price;
+function get_price($coin, $amount) {
+    $fiat = 'usd';
+    $url = "https://api.bitcart.ai/cryptos/rate?currency=" . strtolower($coin) . "&fiat_currency=" . $fiat;
+    $response = file_get_contents($url);
+    
+    $rate = (float) $response;
+    if (is_nan($rate)) {
+        throw new Exception('Invalid rate value');
+    }
+    
+    $p = $rate * $amount;
+    $p = round($p, 2);
+    
+    return $p;
 }
