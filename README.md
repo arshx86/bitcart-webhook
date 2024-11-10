@@ -7,7 +7,6 @@ This is a demonstration about how bitcart webhook works.
 Simply include **notification_url** to receive your notifications.
 ```js
  const result = await axios.post('https://api.bitcart.ai/invoices', {
-        "currency": "LTC", // LTC,BTC,XMR [https://sdk.bitcart.ai/en/stable/api.html#implemented-coins](Supported coin list)
         "store_id": process.env.BITCART_STORE_ID,
         "notification_url": "https://your-site.com/callback",
         "price": 15
